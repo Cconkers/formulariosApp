@@ -39,7 +39,5 @@ if (this.nuevoJuego != '' && this.nuevoJuego.length >= 3) {
   eliminar(index: number) {
     this.persona.favoritos.splice(index, 1);
   }
-  nombreValido() {}
 
-  guardar() {}
 }
