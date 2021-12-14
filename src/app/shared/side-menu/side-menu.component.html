@@ -1,27 +1,40 @@
-<div class="col-8">
-  <h2>Template</h2>
-  <hr />
-  <ul class="list-group">
-    <li
-      class="text-start mb-3 btn list-group-item"
-      [routerLink]="item.ruta"
-      routerLinkActive="active"
-      *ngFor="let item of templateMenu"
-    >
-      {{ item.texto }}
-    </li>
-  </ul>
+  <div class="col-8">
+    <h2>Template</h2>
+    <hr />
+    <ul class="list-group">
+      <li
+        class="text-start mb-3 btn list-group-item"
+        [routerLink]="item.ruta"
+        routerLinkActive="active"
+        *ngFor="let item of templateMenu"
+      >
+        {{ item.texto }}
+      </li>
+    </ul>
 
-  <h2>Reactive</h2>
-  <hr />
-  <ul class="list-group">
-    <li
-      class="text-start mt-1 mb-3 btn list-group-item"
-      [routerLink]="item.ruta"
-      routerLinkActive="active"
-      *ngFor="let item of reactiveMenu"
-    >
-      {{ item.texto }}
-    </li>
-  </ul>
-</div>
+    <h2>Reactive</h2>
+    <hr />
+    <ul class="list-group">
+      <li
+        class="text-start mt-1 mb-3 btn list-group-item"
+        [routerLink]="item.ruta"
+        routerLinkActive="active"
+        *ngFor="let item of reactiveMenu"
+      >
+        {{ item.texto }}
+      </li>
+    </ul>
+
+    <h2>Validaciones</h2>
+    <hr />
+    <ul class="list-group">
+      <li
+        class="text-start mt-1 mb-3 btn list-group-item"
+        [routerLink]="item.ruta"
+        routerLinkActive="active"
+        *ngFor="let item of authMenu"
+      >
+        {{ item.texto }}
+      </li>
+    </ul>
+  </div>
