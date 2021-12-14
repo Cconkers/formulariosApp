@@ -1,0 +1,40 @@
+<h2>Template: <small>Dinámicos</small></h2>
+<hr />
+
+<form #miFormulario2="ngForm" (ngSubmit)="guardar()">
+  <div class="input-group mt-4 mb-3">
+    <input
+      required
+      minlength="3"
+      [ngModel]="initFormDinamicos.nombre"
+      name="nombre"
+      type="text"
+      placeholder="Nombre de la persona"
+      class="form-control"
+    />
+
+    <button
+      class="btn btn-primary float-end"
+      type="button"
+      (click)="guardar()"
+      [disabled]="miFormulario2.controls['nombre']?.errors"
+    >
+      Guardar
+    </button>
+  </div>
+  <span
+    class="form-text text-danger"
+    *ngIf="miFormulario2.controls['nombre']?.errors"
+    >El nombre debe ser de al menos 3 letras</span
+  >
+
+  <div class="input-group mt-4">
+    <input type="text" name="favoritoInput" [ngModel]="initFormDinamicos.favoritoInput" class="form-control" placeholder="Agregar favorito" />
+    <button class="btn btn-outline-primary" (click)="agregar()" type="button">Agregar</button>
+  </div>
+
+  <div *ngFor="let favorito of initFormDinamicos.favoritoInput" class="input-group mt-4">
+    <input type="text" [placeholder]="favorito" class="form-control" />
+  </div>
+  
+</form>
