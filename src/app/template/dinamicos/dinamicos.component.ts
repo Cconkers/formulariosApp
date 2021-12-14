@@ -1,30 +1,45 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+interface Persona {
+  nombre: string;
+  favoritos: Favorito[];
+}
+
+interface Favorito {
+  id: number;
+  nombre: string;
+}
 
 @Component({
   selector: 'app-dinamicos',
   templateUrl: './dinamicos.component.html',
   styles: [],
 })
-export class DinamicosComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  initFormDinamicos= {
-    nombre: '', 
-    favoritoInput: []
+export class DinamicosComponent {
+  persona: Persona = {
+    nombre: 'R234',
+    favoritos: [
+      { id: 1, nombre: 'Metal Gear' },
+      { id: 2, nombre: 'DeathStranding' },
+    ],
   };
+  nuevoJuego: string = '';
 
-  agregar() {
-    this.initFormDinamicos.favoritoInput.push();
-    return console.log(this.initFormDinamicos.favoritoInput);
+  agregarJuego() {
+    const nuevoFavorito: Favorito = {
+      id: this.persona.favoritos.length + 1,
+      nombre: this.nuevoJuego
+    };
+if (this.nuevoJuego != '' && this.nuevoJuego.length >= 3) {
+  this.persona.favoritos.push({...nuevoFavorito});
+  this.nuevoJuego ="";
+}
   }
 
-  nombreValido() {
-    console.log(this.initFormDinamicos.nombre.length);
+  eliminar(index: number) {
+    this.persona.favoritos.splice(index, 1);
   }
+  nombreValido() {}
 
-  guardar() {
-    console.log(this.nombreValido());
-  }
+  guardar() {}
 }

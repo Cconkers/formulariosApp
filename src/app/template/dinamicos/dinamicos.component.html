@@ -6,7 +6,7 @@
     <input
       required
       minlength="3"
-      [ngModel]="initFormDinamicos.nombre"
+      [ngModel]="persona.nombre"
       name="nombre"
       type="text"
       placeholder="Nombre de la persona"
@@ -29,12 +29,28 @@
   >
 
   <div class="input-group mt-4">
-    <input type="text" name="favoritoInput" [ngModel]="initFormDinamicos.favoritoInput" class="form-control" placeholder="Agregar favorito" />
-    <button class="btn btn-outline-primary" (click)="agregar()" type="button">Agregar</button>
+    <input (keyup.enter)="agregarJuego()" type="text" class="form-control" placeholder="Agregar favorito" name="nuevoJuego" [(ngModel)]="nuevoJuego" />
+    <button class="btn btn-outline-primary" (click)="agregarJuego()" type="button">
+      Agregar
+    </button>
   </div>
 
-  <div *ngFor="let favorito of initFormDinamicos.favoritoInput" class="input-group mt-4">
-    <input type="text" [placeholder]="favorito" class="form-control" />
+  <div
+    *ngFor="let juego of persona.favoritos; let i = index"
+    class="input-group mt-4"
+  >
+    <input
+      type="text"
+      name="juego_{{i}}"
+      [(ngModel)]="juego.nombre"
+      class="form-control"
+    />
+    <button class="btn btn-outline-danger" (click)="eliminar(i)" type="button">
+        Eliminar
+      </button>
   </div>
-  
 </form>
+
+
+<span>Persona</span>
+<pre>{{persona | json}}</pre>
